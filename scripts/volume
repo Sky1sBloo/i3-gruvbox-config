@@ -1,0 +1,13 @@
+#!/bin/sh
+
+aud="$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)"
+	if ((aud > 50)) ; then
+		volicon=""
+	elif ((aud > 0)) ; then
+		volicon=""
+	else
+		volicon=""
+	fi
+
+	echo -e "$volicon $aud%"
+
